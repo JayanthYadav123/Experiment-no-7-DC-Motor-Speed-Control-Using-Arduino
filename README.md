@@ -1,5 +1,6 @@
 # Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino
-### AIM : To control the speed and the direction of a DC motor using L293D driver ic( H- bridge)
+### AIM :
+To control the speed and the direction of a DC motor using L293D driver ic( H- bridge)
 
 ### Components Required:
 •	Arduino UNO board
@@ -10,7 +11,7 @@
 •	12V source
 •	Breadboard
 •	Jumper wires
-### THEORY 
+### THEORY: 
 The L293D quadruple half-H drivers chip allows us to drive 2 motors in both directions, with two PWM outputs from the Arduino we can easily control the speed as well as the direction of rotation of one DC motor. (PWM: Pulse Width Modulation).
 Arduino DC motor control circuit:
 Project circuit schematic diagram is the one below.
@@ -25,9 +26,44 @@ TABLE-01 EXITATION TABLE FOR H BRIDGE
 
 As shown in the circuit diagram we need only 3 Arduino terminal pins, pin 8 is for the push button which toggles the motor direction of rotation. Pins 9 and 10 are PWM signal outputs, at any time there is only 1 active PWM, this allows us to control the direction as well as the speed by varying the duty cycle of the PWM signal. The active PWM pin decides the motor direction of rotation (one at a time, the other output is logic 0).
 
-### PRGORAM 
+### PRGORAM:
+## Developed by G.Jayanth.
 
-### OUTPUT
+## Ref No:212221230030
+~~~
 
-### RESULTS AND DISCUSSION 
+#define m1 2
+#define m2 3
+#define m3 13
+int buttonState = 0;
+void setup()
+{
+  pinMode(m1, OUTPUT);
+  pinMode(m2, OUTPUT);
+  pinMode(m3, OUTPUT);
+  
+}
 
+void loop()
+{
+  buttonState = digitalRead(13);
+  if (buttonState == HIGH) {
+     digitalWrite(m1, HIGH);
+ 	 digitalWrite(m2, LOW);
+     
+  }
+  else{
+     digitalWrite(m1, LOW);
+  	 digitalWrite(m2, HIGH);
+  }
+  delay(1000);
+  
+}
+### OUTPUT:
+~~~
+<img width="737" alt="Screenshot 2022-05-20 183016" src="https://user-images.githubusercontent.com/94836154/169533774-4cae1c4a-4513-49bb-9486-7bca7b95f479.png">
+<img width="650" alt="Screenshot 2022-05-20 182629" src="https://user-images.githubusercontent.com/94836154/169533810-25c513d6-64c5-4cb6-8d56-2048898efa66.png">
+
+
+### RESULTS AND DISCUSSION:
+Thus to control the speed of DC motor using l293D board is completed successfully using Tinkercad software.
